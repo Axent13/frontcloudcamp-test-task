@@ -1,0 +1,70 @@
+@use '../../colors.scss';
+
+.main-page {
+  background: colors.$page-bg;
+  height: 100vh;
+  padding: 1.5rem;
+
+  &__frame {
+    background: colors.$frame-bg;
+    max-width: 56.25rem;
+    min-height: 44rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 12px 12px 0px 0px;
+  }
+
+  &__user-avatar-and-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__user-avatar {
+    max-width: 5rem;
+    border-radius: 50%;
+  }
+
+  &__user-name-and-socials {
+    margin-left: 1.5rem;
+  }
+
+  &__user-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: colors.$main-text-color;
+    margin-bottom: 0.5rem;
+  }
+
+  &__user-socials {
+    list-style: none;
+    display: flex;
+    gap: 1.1rem;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+  }
+
+  &__social-link {
+    text-decoration: none;
+    color: #5558fa;
+
+    &:hover {
+      color: #9fa0fd;
+    }
+  }
+
+  &__social-icon {
+    margin-right: 0.35rem;
+  }
+
+  &__divider {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  &__phone-and-email-form {
+    margin-top: 1.5rem;
+  }
+}
