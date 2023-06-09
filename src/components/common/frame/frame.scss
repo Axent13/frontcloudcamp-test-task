@@ -1,0 +1,9 @@
+@use '../../../colors.scss';
+
+.frame {
+  background: colors.$frame-bg;
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 4.125rem 6.875rem 5rem;
+  border-radius: 1.5rem;
+}
