@@ -4,6 +4,7 @@ import Frame from '../../components/common/frame/frame';
 import StepFirst from '../../components/ui/stepFirst/stepFirst';
 import StepSecond from '../../components/ui/stepSecond/stepSecond';
 import StepThird from '../../components/ui/stepThird/stepThird';
+import Stepper from '../../components/common/stepper/stepper';
 
 const CreatePage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -31,6 +32,7 @@ const CreatePage = () => {
   return (
     <div className='create-page'>
       <Frame>
+        <Stepper stepsCount={3} currentStep={currentStep} />
         {currentStep === 1 && (
           <StepFirst
             handlePrevButtonClick={BackToMainPage}

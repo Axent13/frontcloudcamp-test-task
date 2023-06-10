@@ -1,0 +1,57 @@
+@use '../../../colors.scss';
+
+.stepper {
+  display: flex;
+  margin-bottom: 1.6rem;
+
+  &__point {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: colors.$gray;
+    transform: translateX(-0.3rem);
+
+    &_passed {
+      background: url('../../../assets/images/checked-icon.svg') no-repeat
+          center/0.6rem,
+        colors.$purple;
+    }
+
+    &_current {
+      background: url('../../../assets/images/dot-icon.svg') no-repeat
+          center/0.2rem,
+        colors.$purple;
+    }
+
+    &_last {
+      transform: translateX(0.3rem);
+    }
+  }
+
+  &__line {
+    width: 100%;
+    background: colors.$gray-8;
+    height: 0.5rem;
+    display: flex;
+    align-items: center;
+    transform: translateX(0.3rem);
+
+    &_passed {
+      background: colors.$purple;
+    }
+
+    &_last {
+      width: initial;
+      transform: translateX(-0.3rem);
+      background: none;
+    }
+  }
+
+  &__tip {
+    transform: translateY(1.5rem);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+}
