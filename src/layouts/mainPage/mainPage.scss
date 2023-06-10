@@ -1,12 +1,12 @@
-@use '../../colors.scss';
+@use '../../variables.scss';
 
 .main-page {
-  background: colors.$page-bg;
+  background: variables.$page-bg;
   height: 100vh;
   padding: 1.5rem;
 
   &__frame {
-    background: colors.$frame-bg;
+    background: variables.$frame-bg;
     max-width: 56.25rem;
     min-height: 44rem;
     margin: 0 auto;
@@ -31,9 +31,9 @@
 
   &__user-name {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: colors.$main-text-color;
+    color: variables.$main-text-color;
     margin-bottom: 0.5rem;
+    @include variables.font-medium;
   }
 
   &__user-socials {

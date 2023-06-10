@@ -1,4 +1,4 @@
-@use '../../../colors.scss';
+@use '../../../variables.scss';
 
 .stepper {
   display: flex;
@@ -9,19 +9,19 @@
     height: 1rem;
     border-radius: 50%;
     flex-shrink: 0;
-    background: colors.$gray;
+    background: variables.$gray;
     transform: translateX(-0.3rem);
 
     &_passed {
       background: url('../../../assets/images/checked-icon.svg') no-repeat
           center/0.6rem,
-        colors.$purple;
+        variables.$purple;
     }
 
     &_current {
       background: url('../../../assets/images/dot-icon.svg') no-repeat
           center/0.2rem,
-        colors.$purple;
+        variables.$purple;
     }
 
     &_last {
@@ -31,14 +31,14 @@
 
   &__line {
     width: 100%;
-    background: colors.$gray-8;
+    background: variables.$gray-8;
     height: 0.5rem;
     display: flex;
     align-items: center;
     transform: translateX(0.3rem);
 
     &_passed {
-      background: colors.$purple;
+      background: variables.$purple;
     }
 
     &_last {
@@ -51,7 +51,7 @@
   &__tip {
     transform: translateY(1.5rem);
     text-align: center;
-    font-weight: 600;
     font-size: 0.875rem;
+    @include variables.font-medium;
   }
 }

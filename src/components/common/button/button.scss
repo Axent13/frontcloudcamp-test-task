@@ -1,29 +1,29 @@
-@use '../../../colors.scss';
+@use '../../../variables.scss';
 
 .button {
   padding: 0.75rem 1rem;
-  border: 0.094rem solid colors.$purple;
+  border: 0.094rem solid variables.$purple;
   border-radius: 0.25rem;
   background: #fff;
   font-size: 0.875rem;
   font-weight: 400;
-  color: colors.$purple;
+  color: variables.$purple;
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    border-color: colors.$purple-light;
-    color: colors.$purple-light;
+    border-color: variables.$purple-light;
+    color: variables.$purple-light;
   }
 
   &_filled {
-    background-color: colors.$purple;
+    background-color: variables.$purple;
     border: none;
     color: #fff;
 
     &:hover {
       color: #fff;
-      background-color: colors.$purple-light;
+      background-color: variables.$purple-light;
     }
   }
 }
