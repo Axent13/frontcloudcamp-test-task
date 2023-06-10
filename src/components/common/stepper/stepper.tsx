@@ -9,7 +9,7 @@ interface IStepper {
 const Stepper = ({ stepsCount, currentStep }: IStepper) => {
   const drawCommonElement = (tip: number) => {
     return (
-      <div className='stepper__line'>
+      <div className='stepper__line' key={`common-${tip}`}>
         <div className='stepper__point'>
           <div className='stepper__tip'>{tip}</div>
         </div>
@@ -19,7 +19,10 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
 
   const drawCommonLastElement = (tip: number) => {
     return (
-      <div className='stepper__line stepper__line_last'>
+      <div
+        className='stepper__line stepper__line_last'
+        key={`common-last-${tip}`}
+      >
         <div className='stepper__point'>
           <div className='stepper__tip'>{stepsCount}</div>
         </div>
@@ -29,7 +32,7 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
 
   const drawPassedElement = (tip: number) => {
     return (
-      <div className='stepper__line stepper__line_passed'>
+      <div className='stepper__line stepper__line_passed' key={`passed-${tip}`}>
         <div className='stepper__point stepper__point_passed'>
           <div className='stepper__tip stepper__tip_passed'>{tip}</div>
         </div>
@@ -39,7 +42,10 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
 
   const drawCurrentElement = (tip: number) => {
     return (
-      <div className='stepper__line stepper__line_current'>
+      <div
+        className='stepper__line stepper__line_current'
+        key={`current-${tip}`}
+      >
         <div className='stepper__point stepper__point_current'>
           <div className='stepper__tip stepper__tip_current'>{tip}</div>
         </div>
@@ -49,7 +55,10 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
 
   const drawCurrentWithLastElement = (tip: number) => {
     return (
-      <div className='stepper__line stepper__line_current stepper__line_last'>
+      <div
+        className='stepper__line stepper__line_current stepper__line_last'
+        key={`current-last-${tip}`}
+      >
         <div className='stepper__point stepper__point_current'>
           <div className='stepper__tip stepper__tip_current'>{currentStep}</div>
         </div>
