@@ -1,5 +1,6 @@
 import React from 'react';
 import './stepThird.scss';
+import Button from '../../common/button/button';
 
 interface IStepThirdProps {
   handlePrevButtonClick: Function;
@@ -13,8 +14,18 @@ const StepThird = ({
   return (
     <div>
       Third Step
-      <button onClick={() => handlePrevButtonClick()}>Назад</button>
-      <button onClick={() => handleNextButtonClick()}>Отправить</button>
+      <div className='step-third__buttons'>
+        <Button
+          text='Назад'
+          isFilled={false}
+          onClickFunction={handlePrevButtonClick}
+        />
+        <Button
+          text='Отправить'
+          isFilled={true}
+          onClickFunction={handleNextButtonClick}
+        />
+      </div>
     </div>
   );
 };

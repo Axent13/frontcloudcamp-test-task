@@ -1,5 +1,6 @@
 import React from 'react';
 import './stepFirst.scss';
+import Button from '../../common/button/button';
 
 interface IStepFirstProps {
   handlePrevButtonClick: Function;
@@ -13,8 +14,18 @@ const StepFirst = ({
   return (
     <div>
       First Step
-      <button onClick={() => handlePrevButtonClick()}>Назад</button>
-      <button onClick={() => handleNextButtonClick()}>Далее</button>
+      <div className='step-first__buttons'>
+        <Button
+          text='Назад'
+          isFilled={false}
+          onClickFunction={handlePrevButtonClick}
+        />
+        <Button
+          text='Далее'
+          isFilled={true}
+          onClickFunction={handleNextButtonClick}
+        />
+      </div>
     </div>
   );
 };

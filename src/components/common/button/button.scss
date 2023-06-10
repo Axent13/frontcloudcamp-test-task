@@ -1,0 +1,29 @@
+@use '../../../colors.scss';
+
+.button {
+  padding: 0.75rem 1rem;
+  border: 0.094rem solid colors.$purple;
+  border-radius: 0.25rem;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: colors.$purple;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    border-color: colors.$purple-light;
+    color: colors.$purple-light;
+  }
+
+  &_filled {
+    background-color: colors.$purple;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      background-color: colors.$purple-light;
+    }
+  }
+}

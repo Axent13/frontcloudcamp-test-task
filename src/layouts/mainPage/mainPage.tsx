@@ -2,8 +2,13 @@ import React from 'react';
 import './mainPage.scss';
 import userPhotoUrl from '../../assets/images/user-photo.jpg';
 import folderIconUrl from '../../assets/images/folder-icon.png';
+import Button from '../../components/common/button/button';
 
 const MainPage = () => {
+  const handleStartButtonClick = () => {
+    console.log('Go to StepFirst');
+  };
+
   return (
     <div className='main-page'>
       <div className='main-page__frame'>
@@ -81,6 +86,13 @@ const MainPage = () => {
             </div>
           </form>
         </section>
+        <div className='main-page__button'>
+          <Button
+            text='Начать'
+            isFilled={true}
+            onClickFunction={handleStartButtonClick}
+          />
+        </div>
       </div>
     </div>
   );

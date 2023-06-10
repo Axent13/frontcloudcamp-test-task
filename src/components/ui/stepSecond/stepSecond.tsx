@@ -1,5 +1,6 @@
 import React from 'react';
 import './stepSecond.scss';
+import Button from '../../common/button/button';
 
 interface IStepSecondProps {
   handlePrevButtonClick: Function;
@@ -13,8 +14,18 @@ const StepSecond = ({
   return (
     <div>
       Second Step
-      <button onClick={() => handlePrevButtonClick()}>Назад</button>
-      <button onClick={() => handleNextButtonClick()}>Далее</button>
+      <div className='step-second__buttons'>
+        <Button
+          text='Назад'
+          isFilled={false}
+          onClickFunction={handlePrevButtonClick}
+        />
+        <Button
+          text='Далее'
+          isFilled={true}
+          onClickFunction={handleNextButtonClick}
+        />
+      </div>
     </div>
   );
 };
