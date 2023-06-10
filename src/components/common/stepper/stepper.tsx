@@ -31,7 +31,7 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
     return (
       <div className='stepper__line stepper__line_passed'>
         <div className='stepper__point stepper__point_passed'>
-          <div className='stepper__tip'>{tip}</div>
+          <div className='stepper__tip stepper__tip_passed'>{tip}</div>
         </div>
       </div>
     );
@@ -41,7 +41,7 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
     return (
       <div className='stepper__line stepper__line_current'>
         <div className='stepper__point stepper__point_current'>
-          <div className='stepper__tip'>{tip}</div>
+          <div className='stepper__tip stepper__tip_current'>{tip}</div>
         </div>
       </div>
     );
@@ -51,7 +51,7 @@ const Stepper = ({ stepsCount, currentStep }: IStepper) => {
     return (
       <div className='stepper__line stepper__line_current stepper__line_last'>
         <div className='stepper__point stepper__point_current'>
-          <div className='stepper__tip'>{currentStep}</div>
+          <div className='stepper__tip stepper__tip_current'>{currentStep}</div>
         </div>
       </div>
     );
