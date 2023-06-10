@@ -3,6 +3,7 @@ import './mainPage.scss';
 import userPhotoUrl from '../../assets/images/user-photo.jpg';
 import folderIconUrl from '../../assets/images/folder-icon.png';
 import Button from '../../components/common/button/button';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   const handleStartButtonClick = () => {
@@ -87,11 +88,13 @@ const MainPage = () => {
           </form>
         </section>
         <div className='main-page__button'>
-          <Button
-            text='Начать'
-            isFilled={true}
-            onClickFunction={handleStartButtonClick}
-          />
+          <Link to='/create'>
+            <Button
+              text='Начать'
+              isFilled={true}
+              onClickFunction={handleStartButtonClick}
+            />
+          </Link>
         </div>
       </div>
     </div>
