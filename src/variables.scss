@@ -10,13 +10,13 @@ $gray-16: rgba(0, 0, 0, 0.16);
 $gray-48: rgba(0, 0, 0, 0.48);
 
 @mixin font-regular {
-  font-family: 'Roboto', sans;
+  font-family: 'SB Sans Interface', sans;
   font-weight: normal;
   font-style: normal;
 }
 
 @mixin font-medium {
-  font-family: 'Roboto', sans;
+  font-family: 'SB Sans Interface', sans;
   font-weight: 600;
   font-style: normal;
 }
