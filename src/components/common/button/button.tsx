@@ -2,18 +2,28 @@ import React from 'react';
 import './button.scss';
 
 interface IButton {
+  type?: 'button' | 'submit';
+  id: string;
   text: string;
   isFilled: boolean;
-  onClickFunction: Function;
+  onClickFunction?: Function;
 }
 
-const Button = ({ text, isFilled = false, onClickFunction }: IButton) => {
+const Button = ({
+  type = 'button',
+  id,
+  text,
+  isFilled = false,
+  onClickFunction,
+}: IButton) => {
   return (
     <button
       onClick={() => {
-        onClickFunction();
+        onClickFunction ? onClickFunction() : null;
       }}
       className={'button' + (isFilled ? ' button_filled' : '')}
+      type={type}
+      id={id}
     >
       {text}
     </button>

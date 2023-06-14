@@ -3,12 +3,12 @@ import './mainPage.scss';
 import userPhotoUrl from '../../assets/images/user-photo.jpg';
 import folderIconUrl from '../../assets/images/folder-icon.png';
 import Button from '../../components/common/button/button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import FormikFieldWithClass from '../../components/common/form/Field/formikFieldWithClass';
 
 const MainPage = () => {
-  const handleStartButtonClick = () => {
-    console.log('Go to StepFirst');
-  };
+  const navigate = useNavigate();
 
   return (
     <div className='main-page'>
@@ -72,30 +72,52 @@ const MainPage = () => {
         </section>
         <hr className='main-page__divider' />
         <section className='main-page__phone-and-email-form'>
-          <form>
-            <div>
-              <label htmlFor='phone'>Номер телефона</label>
+          <Formik
+            initialValues={{
+              phone: '+7 952 803-26-80',
+              email: 'Axent13@yandex.ru',
+            }}
+            onSubmit={(values) => {
+              navigate('/create');
+              console.log(values);
+            }}
+          >
+            <Form>
               <div>
-                <input type='tel' name='phone' id='phone' />
+                <label htmlFor='phone'>Номер телефона</label>
+                <div className='main-page__input-container'>
+                  <FormikFieldWithClass
+                    type='tel'
+                    name='phone'
+                    id='phone'
+                    placeholder='+7 999 999-99-99'
+                    disabled
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label htmlFor='email'>Email</label>
               <div>
-                <input type='email' name='email' id='email' />
+                <label htmlFor='email'>Email</label>
+                <div className='main-page__input-container'>
+                  <FormikFieldWithClass
+                    type='email'
+                    name='email'
+                    id='email'
+                    placeholder='tim.jennings@example.com'
+                    disabled
+                  />
+                </div>
               </div>
-            </div>
-          </form>
+              <div className='main-page__button'>
+                <Button
+                  type='submit'
+                  text='Начать'
+                  isFilled={true}
+                  id='button-start'
+                />
+              </div>
+            </Form>
+          </Formik>
         </section>
-        <div className='main-page__button'>
-          <Link to='/create'>
-            <Button
-              text='Начать'
-              isFilled={true}
-              onClickFunction={handleStartButtonClick}
-            />
-          </Link>
-        </div>
       </div>
     </div>
   );
