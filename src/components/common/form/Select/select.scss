@@ -1,0 +1,65 @@
+@use '../../../../variables.scss';
+$border-raduis: 0.25rem;
+
+.select {
+  @include variables.font-regular;
+  font-size: 0.875rem;
+
+  &__selected-value {
+    padding: 0.75rem;
+    background: url('../../../../assets/images/arrow-down.svg') no-repeat 98% /
+        1rem,
+      #fff;
+    border: 1px solid variables.$gray-16;
+    color: variables.$main-text-color;
+    border-radius: $border-raduis;
+    user-select: none;
+    cursor: pointer;
+
+    &_opened {
+      background: url('../../../../assets/images/arrow-up.svg') no-repeat 98% /
+          1rem,
+        #fff;
+    }
+
+    &_is-placeholder {
+      color: variables.$gray-48;
+    }
+  }
+
+  &__options {
+    display: none;
+    box-shadow: 0px 4px 20px variables.$gray-8;
+
+    &_opened {
+      display: block;
+    }
+  }
+
+  &__option {
+    padding: 0.75rem;
+    background: #fff;
+    border: 1px solid variables.$gray-16;
+    color: variables.$main-text-color;
+    user-select: none;
+    cursor: pointer;
+
+    &:first-child {
+      border-top-left-radius: $border-raduis;
+      border-top-right-radius: $border-raduis;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: $border-raduis;
+      border-bottom-right-radius: $border-raduis;
+    }
+
+    &_selected {
+      background-color: #f5f5f5;
+    }
+
+    &:hover {
+      background-color: #e7e7e7;
+    }
+  }
+}

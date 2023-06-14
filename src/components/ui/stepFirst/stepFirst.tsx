@@ -3,6 +3,8 @@ import './stepFirst.scss';
 import Button from '../../common/button/button';
 import { Form, Formik } from 'formik';
 import FormikFieldWithClass from '../../common/form/Field/formikFieldWithClass';
+import Select from '../../common/form/Select/select';
+import FormikSelect from '../../common/form/FormikSelect/formikSelect';
 
 interface IStepFirstProps {
   handlePrevButtonClick: Function;
@@ -20,7 +22,7 @@ const StepFirst = ({
           'field-nickname': '',
           'field-name': '',
           'field-sername': '',
-          'field-sex': '',
+          'field-sex': null,
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -63,16 +65,20 @@ const StepFirst = ({
           <div>
             <label htmlFor='field-sex'>Sex</label>
             <div className='main-page__input-container'>
-              <FormikFieldWithClass
-                type='text'
-                name='field-sex'
-                id='field-sex'
+              <FormikSelect
+                name='field-sexxx'
                 placeholder='Не выбрано'
-                as='select'
-              >
-                <option value='field-sex-option-man'>man</option>
-                <option value='field-sex-option-woman'>woman</option>
-              </FormikFieldWithClass>
+                options={[
+                  {
+                    label: 'man',
+                    value: 'field-sex-option-man',
+                  },
+                  {
+                    label: 'woman',
+                    value: 'field-sex-option-woman',
+                  },
+                ]}
+              />
             </div>
           </div>
           <div className='step-first__buttons'>
