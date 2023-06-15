@@ -42,7 +42,7 @@ const CreatePage = () => {
             'field-name': '',
             'field-sername': '',
             'field-sex': null,
-            'field-advantages': '',
+            'field-advantages': ['', '', ''],
             'field-checkbox-group': null,
           }}
           onSubmit={(values) => {
@@ -58,6 +58,7 @@ const CreatePage = () => {
             )}
             {currentStep === 2 && (
               <StepSecond
+                advantagesCount={3}
                 handlePrevButtonClick={GoToFirstStep}
                 handleNextButtonClick={GoToThirdStep}
               />

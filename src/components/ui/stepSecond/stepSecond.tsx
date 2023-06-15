@@ -1,31 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './stepSecond.scss';
 import Button from '../../common/button/button';
-import { Form, Formik } from 'formik';
+import { FieldArray, Form, Formik } from 'formik';
 import FormikFieldWithClass from '../../common/form/Field/formikFieldWithClass';
+import DeleteButton from '../../common/deleteButton/deleteButton';
+import AddButton from '../../common/addButton/addButton';
 
 interface IStepSecondProps {
+  advantagesCount: number;
   handlePrevButtonClick: Function;
   handleNextButtonClick: Function;
 }
 
 const StepSecond = ({
+  advantagesCount,
   handlePrevButtonClick,
   handleNextButtonClick,
 }: IStepSecondProps) => {
-  return (
-    <div>
-      <div>
-        <label htmlFor='field-advantages'>Advantages</label>
-        <div className='main-page__input-container'>
+  const renderAdvantagesFields = (count: number) => {
+    const advantagesField: React.JSX.Element[] = [];
+    for (let index = 1; index <= count; index++) {
+      const advantageField = (
+        <div
+          className='main-page__input-container'
+          key={`field-advantages-${index}`}
+        >
           <FormikFieldWithClass
             type='text'
-            name='field-advantages'
-            id='field-advantages'
+            name={`field-advantages[${index}]`}
+            id={`field-advantages.field-advantages-${index}`}
             placeholder='Placeholder'
           />
         </div>
+      );
+
+      advantagesField.push(advantageField);
+    }
+
+    return advantagesField;
+  };
+
+  return (
+    <div>
+      <div>
+        <p>Advantages</p>
+        <FieldArray name='field-advantages'>
+          {({ form, remove, push }) => (
+            <div>
+              {form.values['field-advantages']?.map(
+                (value: string, index: number) => (
+                  <div
+                    className='step-second__advantage-container'
+                    key={`field-advantages-${index}`}
+                  >
+                    <FormikFieldWithClass
+                      type='text'
+                      name={`field-advantages[${index}]`}
+                      id={`field-advantages-${index}`}
+                      placeholder='Placeholder'
+                    />
+                    <div className='step-second__delete-button-container'>
+                      <DeleteButton onClickFunction={() => remove(index)} />
+                    </div>
+                  </div>
+                )
+              )}
+              <AddButton onClickFunction={() => push('')} />
+            </div>
+          )}
+        </FieldArray>
       </div>
+
       <div>
         <label htmlFor='field-checkbox-group'>Checkbox group</label>
         <div className='main-page__input-container'>

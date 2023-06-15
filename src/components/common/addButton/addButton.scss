@@ -1,0 +1,15 @@
+@use '../../../variables.scss';
+
+.add-button {
+  background: url('../../../assets/images/plus.svg') no-repeat center/25%;
+  border: 1.5px solid variables.$purple;
+  border-radius: 4px;
+  width: 2.75rem;
+  height: 2.75rem;
+  cursor: pointer;
+
+  &:hover {
+    background: url('../../../assets/images/plus.svg') no-repeat center/30%,
+      variables.$purple-lightest;
+  }
+}
