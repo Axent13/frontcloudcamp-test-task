@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './mainPage.scss';
 import userPhotoUrl from '../../assets/images/user-photo.jpg';
 import folderIconUrl from '../../assets/images/folder-icon.png';
 import Button from '../../components/common/button/button';
 import { useNavigate } from 'react-router-dom';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import FormikFieldWithClass from '../../components/common/form/Field/formikFieldWithClass';
+import MaskedInput from 'react-text-mask';
 
 const MainPage = () => {
   const navigate = useNavigate();
+
+  const phoneNumberMask = [
+    '+',
+    '7',
+    ' ',
+    '(',
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    ')',
+    ' ',
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+  ];
 
   return (
     <div className='main-page'>
@@ -74,7 +96,7 @@ const MainPage = () => {
         <section className='main-page__phone-and-email-form'>
           <Formik
             initialValues={{
-              phone: '+7 952 803-26-80',
+              phone: '',
               email: 'Axent13@yandex.ru',
             }}
             onSubmit={(values) => {
@@ -86,13 +108,20 @@ const MainPage = () => {
               <div>
                 <label htmlFor='phone'>Номер телефона</label>
                 <div className='main-page__input-container'>
-                  <FormikFieldWithClass
-                    type='tel'
-                    name='phone'
-                    id='phone'
-                    placeholder='+7 999 999-99-99'
-                    disabled
-                  />
+                  <FormikFieldWithClass name='phone'>
+                    {({ field }: any) => {
+                      return (
+                        <MaskedInput
+                          {...field}
+                          type='tel'
+                          id='phone'
+                          placeholder='+7 (999) 999-99-99'
+                          mask={phoneNumberMask}
+                          className='field'
+                        />
+                      );
+                    }}
+                  </FormikFieldWithClass>
                 </div>
               </div>
               <div>
