@@ -9,4 +9,8 @@
     background: url('../../../assets/images/trashbox-danger.svg') no-repeat
       center/cover;
   }
+
+  &:active {
+    transform: scale(0.9);
+  }
 }

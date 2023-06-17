@@ -26,4 +26,8 @@
       background-color: variables.$purple-light;
     }
   }
+
+  &:active {
+    transform: scale(0.97);
+  }
 }

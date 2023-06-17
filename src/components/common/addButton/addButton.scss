@@ -12,4 +12,8 @@
     background: url('../../../assets/images/plus.svg') no-repeat center/30%,
       variables.$purple-lightest;
   }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
