@@ -6,6 +6,7 @@ import FormikFieldWithClass from '../../common/form/Field/formikFieldWithClass';
 import DeleteButton from '../../common/deleteButton/deleteButton';
 import AddButton from '../../common/addButton/addButton';
 import CheckboxGroup from '../../common/form/checkboxGroup/checkboxGroup';
+import RadioGroup from '../../common/form/radioGroup/radioGroup';
 
 interface IStepSecondProps {
   advantagesCount: number;
@@ -76,38 +77,11 @@ const StepSecond = ({
         name='field-checkbox-group'
         options={[1, 2, 3]}
       />
-      <div>
-        <label htmlFor='field-radio-group'>Radio group</label>
-        <div className='main-page__input-container'>
-          <div>
-            <FormikFieldWithClass
-              type='radio'
-              name='field-radio-group'
-              id='field-radio-group-1'
-              value='1'
-            />
-            <label htmlFor='field-radio-group-1'>1</label>
-          </div>
-          <div>
-            <FormikFieldWithClass
-              type='radio'
-              name='field-radio-group'
-              id='field-radio-group-2'
-              value='2'
-            />
-            <label htmlFor='field-radio-group-2'>2</label>
-          </div>
-          <div>
-            <FormikFieldWithClass
-              type='radio'
-              name='field-radio-group'
-              id='field-radio-group-3'
-              value='3'
-            />
-            <label htmlFor='field-radio-group-3'>3</label>
-          </div>
-        </div>
-      </div>
+      <RadioGroup
+        title='Radio Group'
+        name='field-radio-group'
+        options={[1, 2, 3]}
+      />
       <div className='step-second__buttons'>
         <Button
           id='button-back'

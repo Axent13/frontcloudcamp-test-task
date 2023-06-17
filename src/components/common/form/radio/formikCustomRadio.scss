@@ -1,0 +1,38 @@
+@use '../../../../variables.scss';
+
+.formik-custom-radio {
+  &__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & + label {
+      display: inline-flex;
+      font-size: 0.875rem;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    & + label::before {
+      content: '';
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1.5px solid variables.$gray-24;
+      border-radius: 50%;
+      margin-right: 0.625rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+
+    &:checked + label::before {
+      border-color: variables.$purple;
+      background-color: variables.$frame-bg;
+      background-image: url('../../../../assets/images/dot-icon-purple.svg');
+    }
+  }
+}
