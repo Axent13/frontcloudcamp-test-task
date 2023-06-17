@@ -1,0 +1,94 @@
+@use '../../../variables.scss';
+
+.modal {
+  display: none;
+  position: fixed;
+  min-width: 28.75rem;
+  background: variables.$frame-bg;
+  top: 50%;
+  left: 50%;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 0.5rem 2rem variables.$gray-8;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: raiseUp 300ms ease both;
+
+  &_shown {
+    display: block;
+  }
+
+  &__title-container {
+    text-align: center;
+  }
+
+  &__title-and-button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include variables.font-medium;
+    font-size: 1.25rem;
+  }
+
+  &__top-close-button {
+    width: 1.75rem;
+    height: 1.75rem;
+    border: none;
+    border-radius: 50%;
+    background: url('../../../assets/images/cross.svg') no-repeat center/50%,
+      variables.$gray-4;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background: url('../../../assets/images/cross-dark.svg') no-repeat
+          center/50%,
+        variables.$gray-8;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &__status-image-container {
+    margin: 3.25rem 0 3rem;
+    text-align: center;
+    animation: bounce 300ms ease 100ms both;
+  }
+
+  &__button-to-main {
+    text-align: center;
+  }
+
+  &__button-close {
+    text-align: right;
+  }
+}
+
+@keyframes raiseUp {
+  from {
+    opacity: 0;
+    transform: scale(0), translate(-50%, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1), translate(-50%, -50%);
+  }
+}
+
+@keyframes bounce {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

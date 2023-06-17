@@ -40,7 +40,7 @@ const StepThird = ({
           type='submit'
           text='Отправить'
           isFilled={true}
-          // onClickFunction={handleNextButtonClick}
+          onClickFunction={handleNextButtonClick}
         />
       </div>
     </div>

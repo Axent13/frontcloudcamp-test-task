@@ -7,9 +7,12 @@ import StepThird from '../../components/ui/stepThird/stepThird';
 import Stepper from '../../components/common/stepper/stepper';
 import { useNavigate } from 'react-router-dom';
 import { Form, Formik } from 'formik';
+import Modal from '../../components/ui/modal/modal';
 
 const CreatePage = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [isDataValid, setIsDataValid] = useState(false);
   const navigate = useNavigate();
 
   const BackToMainPage = () => {
@@ -30,10 +33,20 @@ const CreatePage = () => {
 
   const SendData = () => {
     console.log('Sending Data');
+    setIsModalShown(true);
   };
 
   return (
     <div className='create-page'>
+      <Modal
+        isShown={isModalShown}
+        isSuccess={isDataValid}
+        onCloseButtonClick={() => setIsModalShown(false)}
+        onGoToMainButtonClick={() => {
+          setIsModalShown(false);
+          BackToMainPage();
+        }}
+      />
       <Frame>
         <Stepper stepsCount={3} currentStep={currentStep} />
         <Formik
