@@ -5,6 +5,7 @@ import { FieldArray, Form, Formik } from 'formik';
 import FormikFieldWithClass from '../../common/form/Field/formikFieldWithClass';
 import DeleteButton from '../../common/deleteButton/deleteButton';
 import AddButton from '../../common/addButton/addButton';
+import CheckboxGroup from '../../common/form/checkboxGroup/checkboxGroup';
 
 interface IStepSecondProps {
   advantagesCount: number;
@@ -70,39 +71,11 @@ const StepSecond = ({
           )}
         </FieldArray>
       </div>
-
-      <div>
-        <label htmlFor='field-checkbox-group'>Checkbox group</label>
-        <div className='main-page__input-container'>
-          <div>
-            <FormikFieldWithClass
-              type='checkbox'
-              name='field-checkbox-group'
-              id='field-checkbox-group-1'
-              value='1'
-            />
-            <label htmlFor='field-checkbox-group-1'>1</label>
-          </div>
-          <div>
-            <FormikFieldWithClass
-              type='checkbox'
-              name='field-checkbox-group'
-              id='field-checkbox-group-2'
-              value='2'
-            />
-            <label htmlFor='field-checkbox-group-2'>2</label>
-          </div>
-          <div>
-            <FormikFieldWithClass
-              type='checkbox'
-              name='field-checkbox-group'
-              id='field-checkbox-group-3'
-              value='3'
-            />
-            <label htmlFor='field-checkbox-group-3'>3</label>
-          </div>
-        </div>
-      </div>
+      <CheckboxGroup
+        title='Checkbox group'
+        name='field-checkbox-group'
+        options={[1, 2, 3]}
+      />
       <div>
         <label htmlFor='field-radio-group'>Radio group</label>
         <div className='main-page__input-container'>

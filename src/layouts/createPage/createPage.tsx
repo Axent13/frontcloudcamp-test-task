@@ -43,7 +43,7 @@ const CreatePage = () => {
             'field-sername': '',
             'field-sex': null,
             'field-advantages': ['', '', ''],
-            'field-checkbox-group': null,
+            'field-checkbox-group': [],
           }}
           onSubmit={(values) => {
             console.log(values);
