@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import FormikFieldWithClass from '../../components/common/form/Field/formikFieldWithClass';
 import MaskedInput from 'react-text-mask';
+import * as Yup from 'yup';
+import Tip from '../../components/common/tip/tip';
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -31,6 +33,18 @@ const MainPage = () => {
     /\d/,
     /\d/,
   ];
+
+  const mainPageValidationSchema = Yup.object().shape({
+    phone: Yup.string()
+      .matches(
+        /\+7 \(\d\d\d\) \d\d\d-\d\d-\d\d/,
+        'Номер телефона должен быть указан в формате +7 (999) 999-99-99'
+      )
+      .required('Номер телефона обязателен для заполнения'),
+    email: Yup.string()
+      .email('Некорректный email')
+      .required('Email обязателен для заполнения'),
+  });
 
   return (
     <div className='main-page'>
@@ -96,55 +110,62 @@ const MainPage = () => {
         <section className='main-page__phone-and-email-form'>
           <Formik
             initialValues={{
-              phone: '',
+              phone: '+7 (952) 803-26-80',
               email: 'Axent13@yandex.ru',
             }}
+            validationSchema={mainPageValidationSchema}
+            validateOnChange={false}
             onSubmit={(values) => {
               navigate('/create');
               console.log(values);
             }}
           >
-            <Form>
-              <div>
-                <label htmlFor='phone'>Номер телефона</label>
-                <div className='main-page__input-container'>
-                  <FormikFieldWithClass name='phone'>
-                    {({ field }: any) => {
-                      return (
-                        <MaskedInput
-                          {...field}
-                          type='tel'
-                          id='phone'
-                          placeholder='+7 (999) 999-99-99'
-                          mask={phoneNumberMask}
-                          className='field'
-                        />
-                      );
-                    }}
-                  </FormikFieldWithClass>
+            {({ errors, touched }) => (
+              <Form>
+                <div>
+                  <label htmlFor='phone'>Номер телефона</label>
+                  <div className='main-page__input-container'>
+                    <FormikFieldWithClass name='phone'>
+                      {({ field }: any) => {
+                        return (
+                          <MaskedInput
+                            {...field}
+                            type='tel'
+                            id='phone'
+                            placeholder='+7 (999) 999-99-99'
+                            mask={phoneNumberMask}
+                            className='field'
+                            disabled
+                          />
+                        );
+                      }}
+                    </FormikFieldWithClass>
+                    {touched.phone && errors.phone && <Tip>{errors.phone}</Tip>}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <label htmlFor='email'>Email</label>
-                <div className='main-page__input-container'>
-                  <FormikFieldWithClass
-                    type='email'
-                    name='email'
-                    id='email'
-                    placeholder='tim.jennings@example.com'
-                    disabled
+                <div>
+                  <label htmlFor='email'>Email</label>
+                  <div className='main-page__input-container'>
+                    <FormikFieldWithClass
+                      type='email'
+                      name='email'
+                      id='email'
+                      placeholder='tim.jennings@example.com'
+                      disabled
+                    />
+                    {touched.email && errors.email && <Tip>{errors.email}</Tip>}
+                  </div>
+                </div>
+                <div className='main-page__button'>
+                  <Button
+                    type='submit'
+                    text='Начать'
+                    isFilled={true}
+                    id='button-start'
                   />
                 </div>
-              </div>
-              <div className='main-page__button'>
-                <Button
-                  type='submit'
-                  text='Начать'
-                  isFilled={true}
-                  id='button-start'
-                />
-              </div>
-            </Form>
+              </Form>
+            )}
           </Formik>
         </section>
       </div>

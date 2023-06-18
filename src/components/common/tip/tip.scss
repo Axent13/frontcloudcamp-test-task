@@ -1,0 +1,7 @@
+@use '../../../variables.scss';
+
+.tip {
+  font-size: 0.75rem;
+  color: variables.$error-text-color;
+  padding-top: 0.5rem;
+}

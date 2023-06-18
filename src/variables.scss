@@ -10,6 +10,7 @@ $gray-8: rgba(0, 0, 0, 0.08);
 $gray-16: rgba(0, 0, 0, 0.16);
 $gray-24: rgba(0, 0, 0, 0.24);
 $gray-48: rgba(0, 0, 0, 0.48);
+$error-text-color: #e84e58;
 
 @mixin font-regular {
   font-family: 'SB Sans Interface', sans;

@@ -1,18 +1,16 @@
 import React from 'react';
 import './stepThird.scss';
-import Button from '../../common/button/button';
-import { Form, Formik } from 'formik';
 import FormikFieldWithClass from '../../common/form/Field/formikFieldWithClass';
+import { FormikErrors } from 'formik';
+import Tip from '../../common/tip/tip';
 
 interface IStepThirdProps {
-  handlePrevButtonClick: Function;
-  handleNextButtonClick: Function;
+  errors: FormikErrors<{
+    'field-about': string;
+  }>;
 }
 
-const StepThird = ({
-  handlePrevButtonClick,
-  handleNextButtonClick,
-}: IStepThirdProps) => {
+const StepThird = ({ errors }: IStepThirdProps) => {
   return (
     <div>
       <div>
@@ -27,21 +25,7 @@ const StepThird = ({
             placeholder='Placeholder'
           />
         </div>
-      </div>
-      <div className='step-third__buttons'>
-        <Button
-          id='button-back'
-          text='Назад'
-          isFilled={false}
-          onClickFunction={handlePrevButtonClick}
-        />
-        <Button
-          id='button-send'
-          type='submit'
-          text='Отправить'
-          isFilled={true}
-          onClickFunction={handleNextButtonClick}
-        />
+        {errors['field-about'] && <Tip>{errors['field-about']}</Tip>}
       </div>
     </div>
   );
