@@ -11,6 +11,23 @@
     background: variables.$gray-4;
     color: variables.$gray-48;
   }
+
+  &__counter-container {
+    position: relative;
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    color: variables.$gray-48;
+    padding-top: 0.5rem;
+
+    &_danger {
+      color: variables.$error-text-color;
+    }
+  }
 }
 
 textarea.field {

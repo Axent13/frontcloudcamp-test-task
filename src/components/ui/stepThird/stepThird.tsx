@@ -18,6 +18,8 @@ const StepThird = ({ errors }: IStepThirdProps) => {
         <div className='main-page__input-container'>
           <FormikFieldWithClass
             as='textarea'
+            hasSymbolsCounter={true}
+            maxSymbols={200}
             className='textarea'
             type='text'
             name='field-about'
