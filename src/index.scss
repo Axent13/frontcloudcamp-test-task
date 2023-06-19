@@ -38,3 +38,11 @@ html {
   @include variables.font-regular;
   color: variables.$main-text-color;
 }
+
+.input-and-label-container {
+  margin-top: 2rem;
+}
+
+.input-container {
+  margin-top: 0.5rem;
+}

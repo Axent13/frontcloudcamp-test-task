@@ -141,9 +141,11 @@ const CreatePage = () => {
           }) => {
             return (
               <Form>
-                {currentStep === 1 && <StepFirst errors={errors} />}
-                {currentStep === 2 && <StepSecond errors={errors} />}
-                {currentStep === 3 && <StepThird errors={errors} />}
+                <div className='create-page__step'>
+                  {currentStep === 1 && <StepFirst errors={errors} />}
+                  {currentStep === 2 && <StepSecond errors={errors} />}
+                  {currentStep === 3 && <StepThird errors={errors} />}
+                </div>
                 <div className='create-page__navigate-buttons'>
                   <Button
                     id='button-back'

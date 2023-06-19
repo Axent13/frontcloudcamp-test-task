@@ -126,36 +126,40 @@ const MainPage = () => {
             {({ errors, touched }) => (
               <Form>
                 <div>
-                  <label htmlFor='phone'>Номер телефона</label>
-                  <div className='main-page__input-container'>
-                    <FormikFieldWithClass name='phone'>
-                      {({ field }: any) => {
-                        return (
-                          <MaskedInput
-                            {...field}
-                            type='tel'
-                            id='phone'
-                            placeholder='+7 (999) 999-99-99'
-                            mask={phoneNumberMask}
-                            className='field'
-                            disabled
-                          />
-                        );
-                      }}
-                    </FormikFieldWithClass>
+                  <div className='input-and-label-container'>
+                    <label htmlFor='phone'>Номер телефона</label>
+                    <div className='input-container'>
+                      <FormikFieldWithClass name='phone'>
+                        {({ field }: any) => {
+                          return (
+                            <MaskedInput
+                              {...field}
+                              type='tel'
+                              id='phone'
+                              placeholder='+7 (999) 999-99-99'
+                              mask={phoneNumberMask}
+                              className='field'
+                              disabled
+                            />
+                          );
+                        }}
+                      </FormikFieldWithClass>
+                    </div>
                     {touched.phone && errors.phone && <Tip>{errors.phone}</Tip>}
                   </div>
                 </div>
                 <div>
-                  <label htmlFor='email'>Email</label>
-                  <div className='main-page__input-container'>
-                    <FormikFieldWithClass
-                      type='email'
-                      name='email'
-                      id='email'
-                      placeholder='tim.jennings@example.com'
-                      disabled
-                    />
+                  <div className='input-and-label-container'>
+                    <label htmlFor='email'>Email</label>
+                    <div className='input-container'>
+                      <FormikFieldWithClass
+                        type='email'
+                        name='email'
+                        id='email'
+                        placeholder='tim.jennings@example.com'
+                        disabled
+                      />
+                    </div>
                     {touched.email && errors.email && <Tip>{errors.email}</Tip>}
                   </div>
                 </div>

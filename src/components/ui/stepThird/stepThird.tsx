@@ -14,18 +14,20 @@ const StepThird = ({ errors }: IStepThirdProps) => {
   return (
     <div>
       <div>
-        <label htmlFor='field-about'>About</label>
-        <div className='main-page__input-container'>
-          <FormikFieldWithClass
-            as='textarea'
-            hasSymbolsCounter={true}
-            maxSymbols={200}
-            className='textarea'
-            type='text'
-            name='field-about'
-            id='field-about'
-            placeholder='Placeholder'
-          />
+        <div className='input-and-label-container'>
+          <label htmlFor='field-about'>About</label>
+          <div className='input-container'>
+            <FormikFieldWithClass
+              as='textarea'
+              hasSymbolsCounter={true}
+              maxSymbols={200}
+              className='textarea'
+              type='text'
+              name='field-about'
+              id='field-about'
+              placeholder='Placeholder'
+            />
+          </div>
         </div>
         {errors['field-about'] && <Tip>{errors['field-about']}</Tip>}
       </div>

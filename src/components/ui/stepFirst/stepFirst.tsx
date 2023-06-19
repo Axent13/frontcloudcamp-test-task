@@ -18,9 +18,9 @@ const StepFirst = ({ errors }: IStepFirstProps) => {
   return (
     <div>
       <div>
-        <div className='main-page__input-container'>
+        <div className='input-and-label-container'>
           <label htmlFor='field-nickname'>Nickname</label>
-          <div>
+          <div className='input-container'>
             <FormikFieldWithClass
               type='text'
               name='field-nickname'
@@ -33,9 +33,9 @@ const StepFirst = ({ errors }: IStepFirstProps) => {
         </div>
       </div>
       <div>
-        <div className='main-page__input-container'>
+        <div className='input-and-label-container'>
           <label htmlFor='field-name'>Name</label>
-          <div>
+          <div className='input-container'>
             <FormikFieldWithClass
               type='text'
               name='field-name'
@@ -47,9 +47,9 @@ const StepFirst = ({ errors }: IStepFirstProps) => {
         </div>
       </div>
       <div>
-        <div className='main-page__input-container'>
+        <div className='input-and-label-container'>
           <label htmlFor='field-sername'>Sername</label>
-          <div>
+          <div className='input-container'>
             <FormikFieldWithClass
               type='text'
               name='field-sername'
@@ -61,9 +61,9 @@ const StepFirst = ({ errors }: IStepFirstProps) => {
         </div>
       </div>
       <div>
-        <div className='main-page__input-container'>
+        <div className='input-and-label-container'>
           <label htmlFor='field-sex'>Sex</label>
-          <div>
+          <div className='input-container'>
             <FormikSelect
               name='field-sex'
               placeholder='Не выбрано'
