@@ -92,79 +92,81 @@ const CreatePage = () => {
           navigate('/');
         }}
       />
-      <Frame>
-        <Stepper stepsCount={stepsCount} currentStep={currentStep} />
-        <Formik
-          initialValues={{
-            'field-nickname': '',
-            'field-name': '',
-            'field-sername': '',
-            'field-sex': null,
-            'field-advantages': ['', '', ''],
-            'field-radio-group': '',
-            'field-checkbox-group': [],
-            'field-about': '',
-          }}
-          validationSchema={getValidationSchema()}
-          onSubmit={async (values) => {
-            if (currentStep === stepsCount) {
-              dispatch(addOtherInfo(values));
-              try {
-                await dispatch(sendUserInfo(values));
-                setIsDataValid(true);
-                setIsModalShown(true);
-              } catch (e) {
-                console.log(e);
-                setIsDataValid(false);
-                setIsModalShown(true);
+      <div className='create-page__frame'>
+        <Frame>
+          <Stepper stepsCount={stepsCount} currentStep={currentStep} />
+          <Formik
+            initialValues={{
+              'field-nickname': '',
+              'field-name': '',
+              'field-sername': '',
+              'field-sex': null,
+              'field-advantages': ['', '', ''],
+              'field-radio-group': '',
+              'field-checkbox-group': [],
+              'field-about': '',
+            }}
+            validationSchema={getValidationSchema()}
+            onSubmit={async (values) => {
+              if (currentStep === stepsCount) {
+                dispatch(addOtherInfo(values));
+                try {
+                  await dispatch(sendUserInfo(values));
+                  setIsDataValid(true);
+                  setIsModalShown(true);
+                } catch (e) {
+                  console.log(e);
+                  setIsDataValid(false);
+                  setIsModalShown(true);
+                }
+              } else {
+                setCurrentStep((prevState) => prevState + 1);
               }
-            } else {
-              setCurrentStep((prevState) => prevState + 1);
-            }
-          }}
-        >
-          {({
-            errors,
-          }: {
-            errors: FormikErrors<{
-              'field-nickname': string;
-              'field-name': string;
-              'field-sername': string;
-              'field-sex': string;
-              'field-advantages': string[];
-              'field-checkbox-group': string[];
-              'field-radio-group': string;
-              'field-about': string;
-            }>;
-            isValid: boolean;
-            validateField: Function;
-          }) => {
-            return (
-              <Form>
-                <div className='create-page__step'>
-                  {currentStep === 1 && <StepFirst errors={errors} />}
-                  {currentStep === 2 && <StepSecond errors={errors} />}
-                  {currentStep === 3 && <StepThird errors={errors} />}
-                </div>
-                <div className='create-page__navigate-buttons'>
-                  <Button
-                    id='button-back'
-                    text='Назад'
-                    isFilled={false}
-                    onClickFunction={handlePrevButtonClick}
-                  />
-                  <Button
-                    id={currentStep === 3 ? 'button-send' : 'button-next'}
-                    text='Далее'
-                    type='submit'
-                    isFilled={true}
-                  />
-                </div>
-              </Form>
-            );
-          }}
-        </Formik>
-      </Frame>
+            }}
+          >
+            {({
+              errors,
+            }: {
+              errors: FormikErrors<{
+                'field-nickname': string;
+                'field-name': string;
+                'field-sername': string;
+                'field-sex': string;
+                'field-advantages': string[];
+                'field-checkbox-group': string[];
+                'field-radio-group': string;
+                'field-about': string;
+              }>;
+              isValid: boolean;
+              validateField: Function;
+            }) => {
+              return (
+                <Form>
+                  <div className='create-page__step'>
+                    {currentStep === 1 && <StepFirst errors={errors} />}
+                    {currentStep === 2 && <StepSecond errors={errors} />}
+                    {currentStep === 3 && <StepThird errors={errors} />}
+                  </div>
+                  <div className='create-page__navigate-buttons'>
+                    <Button
+                      id='button-back'
+                      text='Назад'
+                      isFilled={false}
+                      onClickFunction={handlePrevButtonClick}
+                    />
+                    <Button
+                      id={currentStep === 3 ? 'button-send' : 'button-next'}
+                      text='Далее'
+                      type='submit'
+                      isFilled={true}
+                    />
+                  </div>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Frame>
+      </div>
     </div>
   );
 };

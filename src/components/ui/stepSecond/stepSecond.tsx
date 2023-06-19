@@ -27,27 +27,33 @@ const StepSecond = ({ errors }: IStepSecondProps) => {
             <div>
               {form.values['field-advantages']?.map(
                 (value: string, index: number) => (
-                  <div
-                    className='step-second__advantage-container'
-                    key={`field-advantages-${index}`}
-                  >
-                    <FormikFieldWithClass
-                      type='text'
-                      name={`field-advantages[${index}]`}
-                      id={`field-advantages-${index}`}
-                      placeholder='Placeholder'
-                    />
-                    <div className='step-second__delete-button-container'>
-                      <DeleteButton onClickFunction={() => remove(index)} />
+                  <>
+                    <div
+                      className='step-second__advantage-container'
+                      key={`field-advantages-${index}`}
+                    >
+                      <FormikFieldWithClass
+                        type='text'
+                        name={`field-advantages[${index}]`}
+                        id={`field-advantages-${index}`}
+                        placeholder='Placeholder'
+                      />
+                      <div className='step-second__delete-button-container'>
+                        <DeleteButton onClickFunction={() => remove(index)} />
+                      </div>
                     </div>
-                    {errors['field-advantages'] &&
-                      errors['field-advantages'][index] && (
-                        <Tip>{errors['field-advantages'][index]}</Tip>
-                      )}
-                  </div>
+                    <div>
+                      {errors['field-advantages'] &&
+                        errors['field-advantages'][index] && (
+                          <Tip>{errors['field-advantages'][index]}</Tip>
+                        )}
+                    </div>
+                  </>
                 )
               )}
-              <AddButton onClickFunction={() => push('')} />
+              <div className='step-second__add-button-container'>
+                <AddButton onClickFunction={() => push('')} />
+              </div>
             </div>
           )}
         </FieldArray>

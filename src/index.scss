@@ -37,6 +37,8 @@
 html {
   @include variables.font-regular;
   color: variables.$main-text-color;
+  font-size: 16px;
+  background: variables.$page-bg;
 }
 
 .input-and-label-container {

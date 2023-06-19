@@ -1,12 +1,15 @@
 .step-second {
   &__advantage-container {
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
   }
 
   &__delete-button-container {
     margin-left: 1.15rem;
+  }
+
+  &__add-button-container {
+    margin-top: 0.5rem;
   }
 }

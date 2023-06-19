@@ -3,7 +3,7 @@
 .modal {
   display: none;
   position: fixed;
-  min-width: 28.75rem;
+  min-width: 13.75rem;
   background: variables.$frame-bg;
   top: 50%;
   left: 50%;
@@ -13,6 +13,10 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: raiseUp 300ms ease both;
+
+  @media (min-width: 540px) {
+    min-width: 28.75rem;
+  }
 
   &_shown {
     display: block;
@@ -54,9 +58,13 @@
   }
 
   &__status-image-container {
-    margin: 3.25rem 0 3rem;
+    margin: 1.5rem;
     text-align: center;
     animation: bounce 300ms ease 100ms both;
+
+    @media (min-width: 540px) {
+      margin: 3.25rem 0 3rem;
+    }
   }
 
   &__button-to-main {

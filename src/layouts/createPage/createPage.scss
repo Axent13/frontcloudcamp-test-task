@@ -1,4 +1,15 @@
+@use '../../variables.scss';
+
 .create-page {
+  padding: 1.5rem;
+  &__frame {
+    background: variables.$frame-bg;
+    max-width: 56.25rem;
+    min-height: 44rem;
+    margin: 0 auto;
+    border-radius: 12px 12px 0px 0px;
+  }
+
   &__step {
     margin-top: 6.125rem;
   }
