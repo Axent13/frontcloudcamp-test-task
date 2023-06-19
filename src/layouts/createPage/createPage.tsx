@@ -10,6 +10,12 @@ import { Form, Formik, FormikErrors, FormikProps } from 'formik';
 import Modal from '../../components/ui/modal/modal';
 import * as Yup from 'yup';
 import Button from '../../components/common/button/button';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addOtherInfo,
+  getUserInfoErrorStatus,
+  sendUserInfo,
+} from '../../store/userInfo';
 
 const CreatePage = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -17,6 +23,7 @@ const CreatePage = () => {
   const [isDataValid, setIsDataValid] = useState(false);
   const navigate = useNavigate();
   const stepsCount = 3;
+  const dispatch: any = useDispatch();
 
   const handlePrevButtonClick = () => {
     if (currentStep === 1) {
@@ -99,13 +106,21 @@ const CreatePage = () => {
             'field-about': '',
           }}
           validationSchema={getValidationSchema()}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
             if (currentStep === stepsCount) {
-              setIsModalShown(true);
+              dispatch(addOtherInfo(values));
+              try {
+                await dispatch(sendUserInfo(values));
+                setIsDataValid(true);
+                setIsModalShown(true);
+              } catch (e) {
+                console.log(e);
+                setIsDataValid(false);
+                setIsModalShown(true);
+              }
             } else {
               setCurrentStep((prevState) => prevState + 1);
             }
-            console.log(values);
           }}
         >
           {({

@@ -18,8 +18,6 @@ interface IStepSecondProps {
 }
 
 const StepSecond = ({ errors }: IStepSecondProps) => {
-  console.log(errors);
-
   return (
     <div>
       <div>

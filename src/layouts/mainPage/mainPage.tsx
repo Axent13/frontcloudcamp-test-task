@@ -9,9 +9,12 @@ import FormikFieldWithClass from '../../components/common/form/Field/formikField
 import MaskedInput from 'react-text-mask';
 import * as Yup from 'yup';
 import Tip from '../../components/common/tip/tip';
+import { useDispatch } from 'react-redux';
+import { addPhoneAndEmail } from '../../store/userInfo';
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const dispatch: any = useDispatch();
 
   const phoneNumberMask = [
     '+',
@@ -116,8 +119,8 @@ const MainPage = () => {
             validationSchema={mainPageValidationSchema}
             validateOnChange={false}
             onSubmit={(values) => {
+              dispatch(addPhoneAndEmail(values));
               navigate('/create');
-              console.log(values);
             }}
           >
             {({ errors, touched }) => (
